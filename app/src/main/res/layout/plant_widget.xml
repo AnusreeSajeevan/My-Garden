@@ -2,6 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="@dimen/widget_margin">
     <ImageView
         android:id="@+id/widget_water_plant"
@@ -17,4 +18,14 @@
         android:layout_height="wrap_content"
         android:src="@drawable/grass"/>
 
+
+    <TextView
+        android:id="@+id/widget_plant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        tools:text="123" />
 </RelativeLayout>
