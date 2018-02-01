@@ -73,7 +73,7 @@ public class PlantDetailActivity extends AppCompatActivity
         // Update the watered timestamp
         contentValues.put(PlantContract.PlantEntry.COLUMN_LAST_WATERED_TIME, timeNow);
         getContentResolver().update(SINGLE_PLANT_URI, contentValues, null, null);
-        cursor.close();
+        if (cursor != null) cursor.close();
         PlantWateringService.startActionUpdatePlantWidgets(this);
     }
 

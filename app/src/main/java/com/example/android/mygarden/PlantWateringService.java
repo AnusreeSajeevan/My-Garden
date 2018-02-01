@@ -27,6 +27,7 @@ public class PlantWateringService extends IntentService {
      */
     public static final String ACTION_WATER_PLANT = "com.example.android.mygarden.action.water_plant";
     public static final String ACTION_UPDATE_PLANT_WIDGETS = "com.example.android.mygarden.action.update_plant_widgets";
+    public static final String EXTRA_PLANT_ID = "com.example.android.mygarden.extra.PLANT_ID";
 
     public PlantWateringService() {
         super("PlantWateringService");
@@ -74,7 +75,7 @@ public class PlantWateringService extends IntentService {
             int plantType = cursor.getInt(plantTypeIndex);
             int plantIdIndex = cursor.getColumnIndex(PlantContract.PlantEntry._ID);
             plantId = cursor.getLong(plantIdIndex);
-            cursor.close();
+            if (cursor != null) cursor.close();
             canWater = (timeNow - wateredAt) > PlantUtils.MIN_AGE_BETWEEN_WATER &&
                     (timeNow - wateredAt) < PlantUtils.MAX_AGE_WITHOUT_WATER;
             imgRes = PlantUtils.getPlantImageRes(this, timeNow - createdAt, timeNow - wateredAt, plantType);
